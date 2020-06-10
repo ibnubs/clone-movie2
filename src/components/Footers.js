@@ -47,6 +47,16 @@ const Footers = () => {
                             <li>
                                 <div className="find-us">
                                     <h2>Download</h2>
+                                    <ul className="support-logo">
+                                        <li><img src={require("../assets/image/playstore.png")} alt="" /></li>
+                                        <li><img src={require("../assets/image/appstore.png")} alt="" /></li>
+                                    </ul>
+                                    <h2>Social Media</h2>
+                                    <ul className="clien-logo">
+                                        <li><img src={require("../assets/image/fb.png")} alt="" /></li>
+                                        <li><img src={require("../assets/image/pinterest.jpg")} alt="" /></li>
+                                        <li><img src={require("../assets/image/igg.jpg")} alt="" /></li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
