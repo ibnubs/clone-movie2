@@ -1,11 +1,11 @@
 import React, {Fragment} from 'react'
-import Navbar from '../components/Navbar'
+import Navigation from '../components/Navbar'
 
 
 export default function Homepage() {
     return (
         <Fragment>
-            <Navbar />
+            <Navigation />
         </Fragment>
     )
 }
