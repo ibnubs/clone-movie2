@@ -3,6 +3,7 @@ import Navigation from '../components/Navbar'
 
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
+import Footers from '../components/Footers';
 
 
 
@@ -90,6 +91,7 @@ const Homepage = () => {
                     </Pagination>
                 </div>
             </Container>
+            <Footers />
 
             {/* SignIn Form */}
             <Modal show={show} onHide={handleClose}>
