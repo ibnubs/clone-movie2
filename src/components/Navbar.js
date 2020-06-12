@@ -1,13 +1,16 @@
 import React, { Fragment } from "react";
 import "../assets/style/style.css";
 
+
 import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 
 
-export default function Navigation() {
+
+
+const Navigation = ({handleShow}) => {
   return (
     <Fragment>
-      <Navbar bg="light" expand="lg">
+      <Navbar  expand="lg">
         <Navbar.Brand href="#home" >
           <img src={require('../assets/images/logo.png')}  style={{width:44, height:44}} />
         </Navbar.Brand>
@@ -29,9 +32,12 @@ export default function Navigation() {
               <FormControl id="search" placeholder="Search" />
             </InputGroup>
           </Form>
-          <Button variant="secondary">SignIn</Button>
+          <Button variant="secondary" onClick={handleShow}>SignIn</Button>
         </Navbar.Collapse>
       </Navbar>
+      
     </Fragment>
   );
 }
+
+export default Navigation;
