@@ -1,14 +1,10 @@
 import React, { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navbar'
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
-<<<<<<< HEAD
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Footers from "../components/Footers";
-=======
 import Footers from '../components/Footers';
->>>>>>> 0f815ff78b13cd752e45bd7b612186be81aae2c9
+import ModalLogin from '../components/ModalLogin';
 
 
 
@@ -53,12 +49,12 @@ const Homepage = () => {
             <Container>
                 <p className="h2 text-left mt-2"><strong> Browser by category </strong></p>
                 <div className="text-left mb-5">
-                    <a className="h4 mr-3">All</a>
-                    <a className="h4 mr-3">Anime</a>
-                    <a className="h4 mr-3">Action</a>
-                    <a className="h4 mr-3">Adventure</a>
-                    <a className="h4 mr-3">Science Fiction</a>
-                    <a className="h4 mr-3">Comedy</a>
+                    <Link to="">All</Link>
+                    <Link to="">Anime</Link>
+                    <Link to="">Adventure</Link>
+                    <Link to="">Action</Link>
+                    <Link to="">Science Fiction</Link>
+                    <Link to="">Comedy</Link>
                 </div>
                 <div>
                     <div className="card-deck mb-3">
@@ -103,13 +99,12 @@ const Homepage = () => {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header >
                     <Modal.Title className="d-flex mx-auto">
-                        <a href="#" className="inline-block">
-                            <img src={require("../assets/images/logo.png")} style={{ width: 40, height: 40 }}></img>
-                        </a>
+                        <Link to="" className="inline-block">
+                            <img src={require("../assets/images/logo.png")} style={{ width: 40, height: 40 }} alt=""></img>
+                        </Link>
                         <p className="h2 ml-3">MilanTV</p>
                     </Modal.Title>
                 </Modal.Header>
-
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
@@ -120,7 +115,6 @@ const Homepage = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <Footers />
         </Fragment>
     )
 }

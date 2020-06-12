@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 import { Switch, Route, } from "react-router-dom";
 
 // page
-
 import Homepage from "../pages/Homepage";
 import Footers from "../components/Footers";
+
 
 
 
