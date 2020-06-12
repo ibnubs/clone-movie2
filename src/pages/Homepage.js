@@ -2,9 +2,13 @@ import React, { Fragment, useState } from 'react'
 import Navigation from '../components/Navbar'
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
+<<<<<<< HEAD
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Footers from "../components/Footers";
+=======
+import Footers from '../components/Footers';
+>>>>>>> 0f815ff78b13cd752e45bd7b612186be81aae2c9
 
 
 
@@ -93,6 +97,7 @@ const Homepage = () => {
                     </Pagination>
                 </div>
             </Container>
+            <Footers />
 
             {/* SignIn Form */}
             <Modal show={show} onHide={handleClose}>
