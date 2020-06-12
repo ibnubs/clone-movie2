@@ -1,16 +1,24 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import Navigation from '../components/Navbar'
 
-import {Carousel, Container, Pagination} from 'react-bootstrap';
+import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
 
 
 
 const Homepage = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <Fragment>
             <Container >
-                <Navigation />
+                <Navigation
+                    handleShow={handleShow}
+                />
             </Container>
             <Carousel>
                 <Carousel.Item>
@@ -72,16 +80,50 @@ const Homepage = () => {
                     <Pagination >
                         <Pagination.First />
                         <Pagination.Prev />
-                            <Pagination.Item>{1}</Pagination.Item>
-                            <Pagination.Item>{2}</Pagination.Item>
-                            <Pagination.Item>{3}</Pagination.Item>
-                            <Pagination.Item>{4}</Pagination.Item>
-                            <Pagination.Item>{5}</Pagination.Item>
+                        <Pagination.Item>{1}</Pagination.Item>
+                        <Pagination.Item>{2}</Pagination.Item>
+                        <Pagination.Item>{3}</Pagination.Item>
+                        <Pagination.Item>{4}</Pagination.Item>
+                        <Pagination.Item>{5}</Pagination.Item>
                         <Pagination.Next />
                         <Pagination.Last />
                     </Pagination>
                 </div>
             </Container>
+
+            {/* SignIn Form */}
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header >
+                    <Modal.Title className="d-flex mx-auto">
+                        <a href="#" className="inline-block">
+                            <img src={require("../assets/images/logo.png")} style={{ width: 40, height: 40 }}></img>
+                        </a>
+                        <p className="h2 ml-3">MilanTV</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type="text" placeholder="Username" />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" />
+                        </Form.Group>
+                    </Form>
+                    <p className="font-weight-bold text-center">Created Account? <a href="#">SignUp</a></p>
+                    
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Submit
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Fragment>
     )
 }
