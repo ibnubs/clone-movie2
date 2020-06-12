@@ -7,7 +7,7 @@ import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootst
 export default function Navigation() {
   return (
     <Fragment>
-      <Navbar bg="light" expand="lg">
+      <Navbar  expand="lg">
         <Navbar.Brand href="#home" >
           <img src={require('../assets/images/logo.png')}  style={{width:44, height:44}} />
         </Navbar.Brand>
