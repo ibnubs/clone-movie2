@@ -1,0 +1,91 @@
+@import './variable.scss';
+
+.site-layout-content {
+    background: #fff;
+    padding: 24px;
+    min-height: 280px;
+}
+.ant-layout {
+  height: 310px;
+  .ant-layout-footer{
+    background: rgb(0, 0, 0);
+  }
+  .con-inside {
+    padding: 0 50px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(143, 142, 142);
+      li {
+        padding: 20px;
+        p {
+          margin: 0;
+          color: rgb(255, 255, 255);
+        }
+        .logo {
+          display: flex;
+          margin-bottom: 15px;
+        }
+        .box-pink {
+          margin: 0 15px;
+          border-radius: 20px;
+          background: $primary-color;
+        }
+        h2 {
+          font-size: 25px;
+          margin: 10px 0;
+          font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          color: rgb(255, 255, 255);
+        }
+        .goto {
+          p {
+            margin-bottom: 15px;
+          }
+        }
+        .find-us {
+          h2 {
+            margin: 0;
+            padding-bottom: 10px;
+          }
+          .support-logo {
+            border: none;
+            padding-bottom: 10px;
+            li {
+              padding: 0 10px 0 0;
+            }
+            img {
+              width: 100px;
+            }
+          }
+          .clien-logo {
+            border: none;
+            padding-bottom: 10px;
+            justify-content: normal;
+            li {
+              padding: 0 10px 0 0;
+            }
+            img {
+              width: 30px;
+              border-radius: 5px;
+            }
+          }
+         
+        }
+      }
+    }
+    .feet{
+      h3 {
+        margin: 10px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+      }
+    }
+  }
+}
+.ant-layout-footer{
+  height: 310px;
+  position: relative;
+}
