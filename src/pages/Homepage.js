@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react'
 import Navigation from '../components/Navbar'
-
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Footers from "../components/Footers";
 
 
 
@@ -12,6 +14,7 @@ const Homepage = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     return (
         <Fragment>
@@ -101,20 +104,8 @@ const Homepage = () => {
                         <p className="h2 ml-3">MilanTV</p>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Username" />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                    </Form>
-                    <p className="font-weight-bold text-center">Created Account? <a href="#">SignUp</a></p>
-                    
-                </Modal.Body>
+
+
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
@@ -124,6 +115,7 @@ const Homepage = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            <Footers />
         </Fragment>
     )
 }

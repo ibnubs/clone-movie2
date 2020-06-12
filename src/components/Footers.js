@@ -61,7 +61,7 @@ const Footers = () => {
                             </li>
                         </ul>
                         <div className="feet">
-                            <h3>Copyright @ 2000-202 Milan TV. All Rights Reserved</h3>
+                            <h4>Copyright @ 2000-202 Milan TV. All Rights Reserved</h4>
                         </div>
                     </div>
                 </Footer>
