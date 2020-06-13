@@ -19,7 +19,7 @@ export const register = (props) => async dispatch => {
         })
     }
     catch (error) {
-        console.log('error :', res.data.data.message)
+        console.log(error)
         dispatch({
             type: "FAILED_REGIS"
         })
