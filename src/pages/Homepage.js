@@ -25,26 +25,33 @@ const Homepage = () => {
                     handleShow={handleShow}
                 />
             </Container>
-            <Carousel>
+            <Carousel >
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/400"
                         alt="First slide"
+                        maxHeight='400px'
+                        fluid
                     />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/"
                         alt="Third slide"
+                        maxHeight='400px'
+                        fluid
+                        
                     />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/"
                         alt="Third slide"
+                        maxHeight='400px'
+                        fluid
                     />
                 </Carousel.Item>
             </Carousel>
