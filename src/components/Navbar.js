@@ -6,13 +6,12 @@ import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootst
 
 
 
-
 const Navigation = ({ handleShow }) => {
   return (
     <Fragment>
       <Navbar expand="lg">
         <Navbar.Brand href="#home" >
-          <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} />
+          <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} alt="" />
         </Navbar.Brand>
         <p className="h1">MilanTV</p>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -32,7 +31,7 @@ const Navigation = ({ handleShow }) => {
               <FormControl id="search" placeholder="Search" />
             </InputGroup>
           </Form>
-          <Button variant="secondary" onClick={handleShow}>SignIn</Button>
+          <Button variant="secondary" onClick={handleShow}>Sign In</Button>
         </Navbar.Collapse>
       </Navbar>
 
