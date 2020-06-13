@@ -5,6 +5,7 @@ import { Switch, Route, } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Footers from "../components/Footers";
 import SignUp from "../components/SignUp";
+import Profile from "../pages/Profile";
 
 
 
@@ -15,6 +16,7 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Homepage} />
                 <Route path="/signup" exact component={SignUp} />
+                <Route path="/profile" exact component={Profile} />
                 <Footers />
             </Switch>
         </Fragment>
