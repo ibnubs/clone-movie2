@@ -128,7 +128,7 @@ const Homepage = () => {
                     <Button className="submit" onClick={handleClose}>
                         Submit
                     </Button>
-                    <p className="goto-sign-up">Created Account? <Link to="">SignUp</Link></p>
+                    <p className="goto-sign-up">Created Account? <Link to="/signup" >SignUp</Link></p>
                 </Modal.Footer>
             </Modal>
         </Fragment >

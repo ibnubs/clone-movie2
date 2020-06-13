@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../assets/style/style.css";
+import "../assets/style/style.scss";
 
 
 import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
@@ -31,7 +31,9 @@ const Navigation = ({ handleShow }) => {
               <FormControl id="search" placeholder="Search" />
             </InputGroup>
           </Form>
-          <Button variant="secondary" onClick={handleShow}>Sign In</Button>
+          <div className="signin">
+            <Button onClick={handleShow}>Sign In</Button>
+          </div>
         </Navbar.Collapse>
       </Navbar>
 
