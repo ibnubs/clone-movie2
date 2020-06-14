@@ -17,7 +17,10 @@ const ContainerDisplayImg = () => {
                         This is a modified jumbotron that occupies the entire horizontal space of
                         its parent.
                     </p>
-                    <Col><Button>Watch Trailer</Button> <Button>Add to Watchlist</Button> </Col>
+                    <Col>
+                        <Button variant="outline-danger" className="mr-2">Watch Trailer</Button> 
+                        <Button variant="outline-danger">Add to Watchlist</Button> 
+                    </Col>
                 </Container>
             </Jumbotron>
         </Fragment>

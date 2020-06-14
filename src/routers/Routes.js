@@ -7,6 +7,7 @@ import Footers from "../components/Footers";
 import SignUp from "../components/SignUp";
 import Profile from "../pages/Profile";
 import Detail from "../pages/DetailPageOverview";
+import Review from "../pages/Review";
 
 
 
@@ -19,6 +20,7 @@ const Routes = () => {
                 <Route path="/signup" exact component={SignUp} />
                 <Route path="/profile" exact component={Profile} />
                 <Route path="/detail" exact component={Detail} />
+                <Route path="/review" exact component={Review} />
                 <Footers />
             </Switch>
         </Fragment>
