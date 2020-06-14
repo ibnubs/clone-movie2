@@ -21,11 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
-=======
 
 
 #scss
 /assets/style/style.css.map
 /assets/style/style.scss
->>>>>>> 8c3de9169a25d5b8bed4e193fac842a2bf68aa0d

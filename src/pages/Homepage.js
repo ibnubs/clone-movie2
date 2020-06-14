@@ -1,10 +1,13 @@
 import React, { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navbar'
-
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
 import Footers from '../components/Footers';
 
+
+//Css
+import '../assets/style/login.scss';
 
 
 const Homepage = () => {
@@ -14,6 +17,7 @@ const Homepage = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
     return (
         <Fragment>
             <Container >
@@ -21,38 +25,45 @@ const Homepage = () => {
                     handleShow={handleShow}
                 />
             </Container>
-            <Carousel>
+            <Carousel >
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/400"
                         alt="First slide"
+                        maxHeight='400px'
+                        fluid
                     />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/"
                         alt="Third slide"
+                        maxHeight='400px'
+                        fluid
+                        
                     />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://source.unsplash.com/random/600x400"
+                        src="https://source.unsplash.com/random/"
                         alt="Third slide"
+                        maxHeight='400px'
+                        fluid
                     />
                 </Carousel.Item>
             </Carousel>
             <Container>
                 <p className="h2 text-left mt-2"><strong> Browser by category </strong></p>
-                <div className="text-left mb-5">
-                    <a className="h4 mr-3">All</a>
-                    <a className="h4 mr-3">Anime</a>
-                    <a className="h4 mr-3">Action</a>
-                    <a className="h4 mr-3">Adventure</a>
-                    <a className="h4 mr-3">Science Fiction</a>
-                    <a className="h4 mr-3">Comedy</a>
+                <div className="text-left mb-5 category">
+                    <Link to="">All</Link>
+                    <Link to="">Anime</Link>
+                    <Link to="">Adventure</Link>
+                    <Link to="">Action</Link>
+                    <Link to="">Science Fiction</Link>
+                    <Link to="">Comedy</Link>
                 </div>
                 <div>
                     <div className="card-deck mb-3">
@@ -96,37 +107,38 @@ const Homepage = () => {
             {/* SignIn Form */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header >
-                    <Modal.Title className="d-flex mx-auto">
-                        <a href="#" className="inline-block">
-                            <img src={require("../assets/images/logo.png")} style={{ width: 40, height: 40 }}></img>
-                        </a>
+                    <Modal.Title className="d-flex logo">
+                        <Link to="" className="inline-block">
+                            <img src={require("../assets/images/logo.png")} style={{ width: 40, height: 40 }} alt=""></img>
+                        </Link>
                         <p className="h2 ml-3">MilanTV</p>
                     </Modal.Title>
+                    <div className="close">
+                        <button onClick={handleClose}>x</button>
+                    </div>
                 </Modal.Header>
-                <Modal.Body>
+
+                <Modal.Body className="modal-body">
                     <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Username" />
+                            <Form.Control type="text" placeholder="Insert username" />
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Insert password" />
                         </Form.Group>
                     </Form>
-                    <p className="font-weight-bold text-center">Created Account? <a href="#">SignUp</a></p>
-                    
                 </Modal.Body>
+
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button className="submit" onClick={handleClose}>
                         Submit
                     </Button>
+                    <p className="goto-sign-up">Created Account? <Link to="/signup" >SignUp</Link></p>
                 </Modal.Footer>
             </Modal>
-        </Fragment>
+        </Fragment >
     )
 }
 

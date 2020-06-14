@@ -1,0 +1,25 @@
+@import './variable.scss';
+
+logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.signin {
+  button {
+    background: $primary-color;
+    border-color: $primary-color;
+    outline: none;
+  }
+  button:hover {
+    background: $primary-color-hover;
+    border-color: $primary-color;
+  }
+  .btn-primary {
+    background: $primary-color;
+    border-color: $primary-color;
+    outline: none;
+  }
+  
+}
+/*# sourceMappingURL=style.css.map */

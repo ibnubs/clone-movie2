@@ -1,10 +1,8 @@
 import React from 'react';
-import './App.css';
-import Routes from './routers/Routes';
 import { BrowserRouter } from 'react-router-dom';
-import {Provider} from 'react-redux';
-import store from './store';
-
+import { Provider } from "react-redux";
+import store from "./store";
+import Routes from './routers/Routes';
 
 
 

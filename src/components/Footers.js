@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 //import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
+import { Link } from 'react-router-dom';
 import "../assets/style/footers.scss";
 
 const { Footer } = Layout;
@@ -48,8 +49,8 @@ const Footers = () => {
                                 <div className="find-us">
                                     <h2>Download</h2>
                                     <ul className="support-logo">
-                                        <li><img src={require("../assets/image/playstore.png")} alt="" /></li>
-                                        <li><img src={require("../assets/image/appstore.png")} alt="" /></li>
+                                        <li><Link to=""><img src={require("../assets/image/playstore.png")} alt="" /></Link></li>
+                                        <li><Link to=""><img src={require("../assets/image/appstore.png")} alt="" /></Link></li>
                                     </ul>
                                     <h2>Social Media</h2>
                                     <ul className="clien-logo">
@@ -61,7 +62,7 @@ const Footers = () => {
                             </li>
                         </ul>
                         <div className="feet">
-                            <h3>Copyright @ 2000-202 Milan TV. All Rights Reserved</h3>
+                            <h4>Copyright @ 2000-202 Milan TV. All Rights Reserved</h4>
                         </div>
                     </div>
                 </Footer>
