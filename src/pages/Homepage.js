@@ -6,7 +6,8 @@ import { login } from '../store/actions/Auth';
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
 import Footers from '../components/Footers';
-import {fetchMovie} from '../store/actions/movies'
+import {fetchMovie} from '../store/actions/movies';
+import SliderHome from '../components/SliderHome';
 
 //Css
 import '../assets/style/login.scss';
