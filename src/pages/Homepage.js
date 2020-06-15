@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navigation from '../components/Navbar'
@@ -6,7 +6,7 @@ import { login } from '../store/actions/Auth';
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
 import Footers from '../components/Footers';
-
+import {fetchMovie} from '../store/actions/movies'
 
 //Css
 import '../assets/style/login.scss';
@@ -19,7 +19,6 @@ const Homepage = (props) => {
     const [password, setPassword] = useState("")
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -34,6 +33,18 @@ const Homepage = (props) => {
     }
 
 
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setMovies(await fetchMovie() )
+        }
+        fetchAPI()
+    }, [])
+
+
+
+
     return (
         <Fragment>
             <Container >
@@ -41,36 +52,7 @@ const Homepage = (props) => {
                     handleShow={handleShow}
                 />
             </Container>
-            <Carousel >
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://source.unsplash.com/random/400"
-                        alt="First slide"
-                        maxHeight='400px'
-                        fluid
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://source.unsplash.com/random/"
-                        alt="Third slide"
-                        maxHeight='400px'
-                        fluid
-
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://source.unsplash.com/random/"
-                        alt="Third slide"
-                        maxHeight='400px'
-                        fluid
-                    />
-                </Carousel.Item>
-            </Carousel>
+            <SliderHome />
             <Container>
                 <p className="h2 text-left mt-2"><strong> Browser by category </strong></p>
                 <div className="text-left mb-5 category">
