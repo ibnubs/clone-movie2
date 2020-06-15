@@ -32,7 +32,7 @@ const Navigation = ({ handleShow }) => {
             </InputGroup>
           </Form>
           <div className="signin">
-            <Button onClick={handleShow}>Sign In</Button>
+            <Button onClick={handleShow} >Sign In</Button>
           </div>
         </Navbar.Collapse>
       </Navbar>
