@@ -8,6 +8,7 @@ import SignUp from "../components/SignUp";
 import Profile from "../pages/Profile";
 import Detail from "../pages/DetailPageOverview";
 import Review from "../pages/Review";
+import Character from "../pages/Character";
 
 
 
@@ -21,6 +22,7 @@ const Routes = () => {
                 <Route path="/profile" exact component={Profile} />
                 <Route path="/detail" exact component={Detail} />
                 <Route path="/review" exact component={Review} />
+                <Route path="/character" exact component={Character} />
                 <Footers />
             </Switch>
         </Fragment>
