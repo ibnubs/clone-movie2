@@ -1,21 +1,36 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Navigation from '../components/Navbar'
-import { Container, Pagination, Button, Modal, Form, Row } from 'react-bootstrap';
+import { login } from '../store/actions/Auth';
+import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
 import Footers from '../components/Footers';
 import {fetchMovie} from '../store/actions/movies'
 
 //Css
 import '../assets/style/login.scss';
-import SliderHome from '../components/SliderHome';
+import '../assets/style/style.scss';
 
 
-const Homepage = () => {
+const Homepage = (props) => {
+    const baca_dispatch = useDispatch()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const submit = (e) => {
+        e.preventDefault()
+        const userData = {
+            email,
+            password
+        }
+        baca_dispatch(login(userData))
+        props.history.push("/review")
+    }
 
 
     const [movies, setMovies] = useState([])
@@ -104,24 +119,32 @@ const Homepage = () => {
                 <Modal.Body className="modal-body">
                     <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Insert username" />
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" name="email" placeholder="Insert email" value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Insert password" />
+                            <Form.Control type="password" name="password" placeholder="Insert password" value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button className="submit" onClick={handleClose}>
+                    <Button className="submit" onClick={submit}>
                         Submit
                     </Button>
+
+
+
                     <p className="goto-sign-up">Created Account? <Link to="/signup" >SignUp</Link></p>
                 </Modal.Footer>
             </Modal>
         </Fragment >
+
     )
 }
 

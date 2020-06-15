@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Navigation from '../components/Navbar';
+import HeaderProfile from '../components/HeaderProfile';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import {Container, Button, Row, Col, Form} from 'react-bootstrap';
+import { Container, Button, Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footers from '../components/Footers';
 import '../assets/style/review.scss';
@@ -12,7 +12,7 @@ const Review = () => {
     return (
         <Fragment>
             <Container>
-                <Navigation />
+                <HeaderProfile />
             </Container>
             <ContainerDisplayImg />
             <Container>
@@ -28,20 +28,20 @@ const Review = () => {
                     </Link>
                 </div>
                 <Row>
-                    <Col sm={1} style={{marginLeft:'20px'}}>
+                    <Col sm={1} style={{ marginLeft: '20px' }}>
                         <div className="dummy-pic text-center" >PIC</div>
                     </Col>
                     <Col>
                         <p className="font-weight-bold">Text Nama Review</p>
-                        <div style={{marginTop:'-10px'}}>
+                        <div style={{ marginTop: '-10px' }}>
                             <StarRating />
                         </div>
                     </Col>
                 </Row>
-                <Row style={{paddingLeft:'8rem'}} className="mb-4">
+                <Row style={{ paddingLeft: '8rem' }} className="mb-4">
                     <Form>
                         <Form.Group>
-                            <Form.Control as="textarea" rows="3" style={{width:"70vw"}}></Form.Control>
+                            <Form.Control placeholder="Leave a review..." as="textarea" rows="3" style={{ width: "70vw" }}></Form.Control>
                         </Form.Group>
                     </Form>
                 </Row>
