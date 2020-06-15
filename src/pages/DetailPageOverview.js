@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Navigation from '../components/Navbar';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import {Container, Table} from 'react-bootstrap';
+import {Container, Row, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footers from '../components/Footers';
 import '../assets/style/detail.scss';
@@ -16,13 +16,13 @@ const DetailPageOverview = () => {
             <Container>
                 <div className="text-left mb-5 category">
                     <Link to="">
-                        <button className="link-btn active">Overview</button>
+                        <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to="">
-                        <button className="link-btn">Characters</button>
+                        <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
                     <Link to="">
-                        <button className="link-btn">Review</button>
+                        <Button variant="outline-danger" className="btn-review" >Review</Button>
                     </Link>
                 </div>
                 <p className="title-detail h4" >
@@ -39,7 +39,7 @@ const DetailPageOverview = () => {
                             Movie Info
                         </span>
                     </p>
-                    <div className="row">
+                    <Row>
                         <div className="col-2">
                             <p className="font-weight-bold">Release Date:</p>
                             <p className="font-weight-bold">Budget:</p>
@@ -50,7 +50,7 @@ const DetailPageOverview = () => {
                             <p>text dummy</p>
                             <p>text dummy</p>
                         </div>
-                    </div>
+                    </Row>
                 </div>
                 
 
