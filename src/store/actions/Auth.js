@@ -54,6 +54,12 @@ export const login = data => async dispatch => {
     }
 }
 
+export const LogoutAction = () => {
+    return {
+        type: LOGOUT
+    }
+}
+
 //   export const ACTION_SIGN_IN = input => {
 //     return dispatch => {
 //       console.log("ACTION_SIGN_IN");
@@ -78,11 +84,7 @@ export const login = data => async dispatch => {
 //     };
 //   };
 
-//   export const ACTION_SIGN_OUT = () => {
-//     return {
-//       type: SIGN_OUT
-//     };
-//   };
+
 
 //   export const ACTION_UPDATE_PROFILE = input => dispatch => {
 //     const local = JSON.parse(localStorage.getItem("userLocal"));

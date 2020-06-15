@@ -10,6 +10,7 @@ import Footers from '../components/Footers';
 
 //Css
 import '../assets/style/login.scss';
+import '../assets/style/style.scss';
 
 
 const Homepage = (props) => {
@@ -29,8 +30,9 @@ const Homepage = (props) => {
             password
         }
         baca_dispatch(login(userData))
-        props.history.push("/profile")
+        props.history.push("/review")
     }
+
 
     return (
         <Fragment>

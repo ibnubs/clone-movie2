@@ -2,7 +2,8 @@ import {
     SUCCESS_SIGN_UP,
     FAILED_SIGN_UP,
     LOGIN_SUCCESS,
-    LOGIN_FAILED
+    LOGIN_FAILED,
+    LOGOUT
 } from "../actions/Types";
 
 
@@ -33,10 +34,6 @@ export const authReducerRegis = (state = initialState, action) => {
         //     localStorage.setItem("userLocal", JSON.stringify(action.payload));
         //     return action.payload;
 
-        //   case SIGN_OUT:
-        //     localStorage.clear();
-        //     alert("You are successfully Logout");
-        //     return false;
 
         //   case UPDATE_PROFILE:
         //     localStorage.setItem("userLocal", [
@@ -77,6 +74,13 @@ export const authReducerLogin = (state = initialState, action) => {
                 ...state,
                 isAuthenticate: false,
                 token: localStorage.removeItem('token') //menghapus token jika gagal
+            }
+        case LOGOUT:
+            alert("Are you sure ?")
+            return {
+                ...state,
+                isAuthenticate: false,
+                token: localStorage.removeItem('token')
             }
     }
 }
