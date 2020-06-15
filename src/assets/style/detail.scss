@@ -1,25 +1,25 @@
 @import './variable.scss';
 
-.link-btn:hover, .active {
-    border: 1px red solid;
-    border-radius: 4px;
-    padding: 0.3rem;
-    background-color:red;
-    color: white;
-    font-weight: 600;
-    margin-right: -14px;
-}
+// .link-btn:hover, .active {
+//     border: 1px red solid;
+//     border-radius: 4px;
+//     padding: 0.3rem;
+//     background-color:red;
+//     color: white;
+//     font-weight: 600;
+//     margin-right: -14px;
+// }
 
-.link-btn {
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem;
-    background-color: white;
-    font-weight: 500;
-    margin-right: -14px;
-    color: black;
-    font-size: 1.25rem;
-}
+// .link-btn {
+//     border: none;
+//     border-radius: 4px;
+//     padding: 0.3rem;
+//     background-color: white;
+//     font-weight: 500;
+//     margin-right: -14px;
+//     color: black;
+//     font-size: 1.25rem;
+// }
 
 
 .title-detail{
@@ -43,4 +43,8 @@
     }
 }
 
-
+.btn-review{
+    font-size: 1.25rem;
+    color: black;
+    border:white
+}
