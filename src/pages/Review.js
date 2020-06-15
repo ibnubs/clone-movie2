@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Footers from '../components/Footers';
 import '../assets/style/review.scss';
 import StarRating from '../components/StarRating';
+import ReviewCard from '../components/ReviewCard';
 
 const Review = () => {
     return (
@@ -37,13 +38,14 @@ const Review = () => {
                         </div>
                     </Col>
                 </Row>
-                <Row style={{paddingLeft:'8rem', border:'1px solid black'}}>
+                <Row style={{paddingLeft:'8rem'}} className="mb-4">
                     <Form>
                         <Form.Group>
                             <Form.Control as="textarea" rows="3" style={{width:"70vw"}}></Form.Control>
                         </Form.Group>
                     </Form>
                 </Row>
+                <ReviewCard />
             </Container>
             <Footers />
         </Fragment>
