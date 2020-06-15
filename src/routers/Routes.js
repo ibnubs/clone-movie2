@@ -21,8 +21,8 @@ const Routes = () => {
                 <Route path="/detail" exact component={Detail} />
                 <Route path="/review" exact component={Review} />
                 <Route path="/character" exact component={Character} />
-                <Footers />
             </Switch>
+            <Footers />
         </Fragment>
     );
 }

@@ -5,9 +5,9 @@ import Navigation from '../components/Navbar'
 import { login } from '../store/actions/Auth';
 import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
 import CardList from '../components/CardList';
-import Footers from '../components/Footers';
-import {fetchMovie} from '../store/actions/movies';
+import {getMovie} from '../store/actions/movies';
 import SliderHome from '../components/SliderHome';
+import axios from 'axios';
 
 //Css
 import '../assets/style/login.scss';
@@ -34,17 +34,39 @@ const Homepage = (props) => {
     }
 
 
-    const [movies, setMovies] = useState([])
+    // const [movies, setMovies] = useState([])
 
-    useEffect(() => {
-        const fetchAPI = async () => {
-            setMovies(await fetchMovie() )
-        }
-        fetchAPI()
-    }, [])
+    // useEffect(() => {
+    //     const fetchAPI = async () => {
+    //         setMovies(await getMovie() )
+    //     }
+    //     fetchAPI()
+    // }, [])
 
 
 
+    const [movies, setMovies] = useState([]);
+    
+    useEffect(()=> {
+        const fetchData = async () => {
+            const res = await axios
+                .get("https://be-review-movie.herokuapp.com/api/v1/movie/")
+                setMovies(res.data.data.Movie)    
+        } 
+        fetchData();
+    },[]);
+
+    const ListMovies = movies.map(item => {
+        // console.log(item, 'ini dari item')
+        return (
+            <CardList
+                item={item}
+                title={item.title}
+                poster={item.poster}
+                genre={item.genre}
+            />
+        )
+    })
 
     return (
         <Fragment>
@@ -66,26 +88,9 @@ const Homepage = (props) => {
                 </div>
                 <div>
                     <div className="card-deck mb-3">
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
+                        {ListMovies}
                     </div>
-                    <div className="card-deck mb-3">
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                    </div>
-                    <div className="card-deck mb-3">
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                        <CardList />
-                    </div>
+
                 </div>
                 <div className=" d-flex justify-content-center">
                     <Pagination >
@@ -93,15 +98,11 @@ const Homepage = (props) => {
                         <Pagination.Prev />
                         <Pagination.Item>{1}</Pagination.Item>
                         <Pagination.Item>{2}</Pagination.Item>
-                        <Pagination.Item>{3}</Pagination.Item>
-                        <Pagination.Item>{4}</Pagination.Item>
-                        <Pagination.Item>{5}</Pagination.Item>
                         <Pagination.Next />
                         <Pagination.Last />
                     </Pagination>
                 </div>
             </Container>
-            <Footers />
 
             {/* SignIn Form */}
             <Modal show={show} onHide={handleClose}>

@@ -3,7 +3,6 @@ import Navigation from '../components/Navbar';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import {Container, Row, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Footers from '../components/Footers';
 import '../assets/style/detail.scss';
 
 const DetailPageOverview = () => {
@@ -53,9 +52,7 @@ const DetailPageOverview = () => {
                     </Row>
                 </div>
                 
-
             </Container>
-            <Footers />
         </Fragment>
     )
 }

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import Navigation from '../components/Navbar';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import Footers from '../components/Footers';
 import {Link} from 'react-router-dom';
 import CardCharacter from '../components/CardCharacter';
 
@@ -28,7 +27,6 @@ const Character = () => {
                 <CardCharacter />
                 <CardCharacter />
             </Container>
-            <Footers />
         </Fragment>
     );
 }

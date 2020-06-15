@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 
-const CardList = () => {
+const CardList = ({item, title, poster, genre}) => {
     return (
         <Fragment>
-            <div className="card">
-                <img src="https://source.unsplash.com/random/100x100" className="card-img-top" alt="..." />
+            <div className="card" key={item.id}>
+                <img src={poster} className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a longer card with </p>
+                        <h5 className="card-title">{title} </h5>
+                        <p className="card-text">{genre} </p>
                     </div>
             </div>
         </Fragment>
