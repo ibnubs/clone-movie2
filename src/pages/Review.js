@@ -41,6 +41,9 @@ const Review = () => {
                     <Form>
                         <Form.Group>
                             <Form.Control placeholder="Leave a review..." as="textarea" rows="3" style={{ width: "70vw" }}></Form.Control>
+                            <Button className="send" style={{ backgroundColor: "#fe024e", borderColor: "#fe024e" }}>
+                                Submit
+                            </Button>
                         </Form.Group>
                     </Form>
                 </Row>

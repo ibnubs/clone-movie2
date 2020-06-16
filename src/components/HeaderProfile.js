@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogoutAction } from '../store/actions/Auth';
 import { getProfile } from '../store/actions/profile';
+import { Link } from 'react-router-dom';
 import "../assets/style/header.scss";
 
 
