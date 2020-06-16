@@ -15,7 +15,7 @@ const Navigation = ({ handleShow }) => {
             <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} alt="" />
           </Link>
         </Navbar.Brand>
-        <Link to="/">
+        <Link style={{textDecoration:'none'}} to="/">
           <p className="h1" style={{color:"black", fontWeight:'bolder'}}>MilanTV</p>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
