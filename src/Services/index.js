@@ -4,7 +4,7 @@ const apiKey = "43ccf5a224996692cdc24ac6ab9eb964";
 const url = "https://api.themoviedb.org/3";
 const nowPlayingUrl = `${url}/movie/now_playing`;
 // const topRatedUrl=`${url}/movie/top_rated`;
-// const movieUrl=`${url}/movie`;
+const movieUrl=`${url}/movie`;
 const genreUrl=`${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie/`;
 // const personUrl = `${url}/trending/person/week`;
@@ -84,17 +84,39 @@ export const fetchMovieByGenre = async (genre_id) => {
         // console.log(error, 'error from fetchmoviebygenre')
     }
 }
-export const fetchPerson = () => {
+// export const fetchPerson = () => {
     
+// }
+// export const fetchTopRatedMovie = () => {
+    
+// }
+
+export const fetchMovieDetail = async (id) => {
+    try {
+        const {data} = await axios.get(`${movieUrl}/${id}`,{
+            params:{
+                api_key: apiKey,
+                language: 'en-US'
+            }
+        });
+        console.log(data, 'ini data dari fetch movie detail')
+        return data
+    } catch (error) {
+        // console.log(error, 'error dari fetch movie detail')
+    }
 }
-export const fetchTopRatedMovie = () => {
-    
-}
-export const fetchMovieDetail = () => {
-    
-}
-export const fetchMovieVideos = () => {
-    
+export const fetchMovieVideos = async (id) => {
+    try {
+        const {data} = await axios.get(`${movieUrl}/${id}/videos`,{
+            params:{
+                api_key: apiKey,
+            }
+        });
+        console.log(data, 'ini data dari fetch movie video detail')
+        return data['results'][0];
+    } catch (error) {
+        console.log(error, 'error dari fetch movie video detail')
+    }
 }
 export const fetchCasts = () => {
     
