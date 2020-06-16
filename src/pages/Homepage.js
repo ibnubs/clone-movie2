@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navigation from '../components/Navbar'
 import { login } from '../store/actions/Auth';
-import { Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
-// import CardList from '../components/CardList';
+import { Container, Button, Modal, Form } from 'react-bootstrap';
 import SliderHome from '../components/SliderHome';
-// import axios from 'axios';
 import CategoryMovie from '../components/CategoryMovie';
 
 //Css
@@ -18,6 +16,7 @@ const Homepage = (props) => {
     const baca_dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -33,41 +32,6 @@ const Homepage = (props) => {
         props.history.push("/review")
     }
 
-
-    // const [movies, setMovies] = useState([])
-
-    // useEffect(() => {
-    //     const fetchAPI = async () => {
-    //         setMovies(await getMovie() )
-    //     }
-    //     fetchAPI()
-    // }, [])
-
-
-
-    // const [movies, setMovies] = useState([]);
-    
-    // useEffect(()=> {
-    //     const fetchData = async () => {
-    //         const res = await axios
-    //             .get("https://be-review-movie.herokuapp.com/api/v1/movie/")
-    //             setMovies(res.data.data.Movie)    
-    //     } 
-    //     fetchData();
-    // },[]);
-
-    // const ListMovies = movies.map(item => {
-    //     // console.log(item, 'ini dari item')
-    //     return (
-    //         <CardList
-    //             item={item}
-    //             title={item.title}
-    //             poster={item.poster}
-    //             genre={item.genre}
-    //         />
-    //     )
-    // })
-
     return (
         <Fragment>
             <Container >
@@ -78,35 +42,10 @@ const Homepage = (props) => {
             <SliderHome />
             <Container>
                 <p className="h2 text-left mt-2"><strong> Browser by category </strong></p>
-                {/* <div className="text-left mb-5 category">
-                    <Link to="">All</Link>
-                    <Link to="">Anime</Link>
-                    <Link to="">Adventure</Link>
-                    <Link to="">Action</Link>
-                    <Link to="">Science Fiction</Link>
-                    <Link to="">Comedy</Link>
-                </div>
-                <div>
-                    <div className="card-deck mb-3">
-                        {ListMovies}
-                    </div>
-                </div> */}
-
                 <CategoryMovie />
-
-                <div className=" d-flex justify-content-center mt-3">
-                    <Pagination >
-                        <Pagination.First />
-                        <Pagination.Prev />
-                        <Pagination.Item>{1}</Pagination.Item>
-                        <Pagination.Item>{2}</Pagination.Item>
-                        <Pagination.Next />
-                        <Pagination.Last />
-                    </Pagination>
-                </div>
             </Container>
 
-            {/* SignIn Form */}
+            {/* SignIn Modal Form */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header >
                     <Modal.Title className="d-flex logo">
@@ -119,7 +58,6 @@ const Homepage = (props) => {
                         <button onClick={handleClose}>x</button>
                     </div>
                 </Modal.Header>
-
                 <Modal.Body className="modal-body">
                     <Form>
                         <Form.Group controlId="formBasicEmail">
@@ -136,19 +74,14 @@ const Homepage = (props) => {
                         </Form.Group>
                     </Form>
                 </Modal.Body>
-
                 <Modal.Footer>
                     <Button className="submit" onClick={submit}>
                         Submit
                     </Button>
-
-
-
                     <p className="goto-sign-up">Created Account? <Link to="/signup" >SignUp</Link></p>
                 </Modal.Footer>
             </Modal>
         </Fragment >
-
     )
 }
 

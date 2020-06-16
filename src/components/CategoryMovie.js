@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { fetchGenre, fetchMovieByGenre } from '../Services/index';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Pagination } from 'react-bootstrap';
 import ReactStars from 'react-star-rating-component';
 import '../index.css';
 import { Link } from 'react-router-dom';
@@ -87,6 +87,17 @@ const CategoryMovie = () => {
             <Row className="mt-3">
                 {movielist}
             </Row>
+
+            <div className=" d-flex justify-content-center mt-3">
+                    <Pagination >
+                        <Pagination.First />
+                        <Pagination.Prev />
+                        <Pagination.Item>{1}</Pagination.Item>
+                        <Pagination.Item>{2}</Pagination.Item>
+                        <Pagination.Next />
+                        <Pagination.Last />
+                    </Pagination>
+            </div>
         </Fragment>
     );
 }
