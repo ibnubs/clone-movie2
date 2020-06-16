@@ -1,20 +1,12 @@
-<<<<<<< src/pages/Character.js
 import React, { Fragment, useEffect, useState } from 'react';
 import {Container,  Button, Modal, Jumbotron, Col, Row} from 'react-bootstrap';
-import Navigation from '../components/Navbar';
+// import Navigation from '../components/Navbar';
 import {fetchMovieDetail, fetchMovieVideos} from '../Services/index';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
 // import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import {Link} from 'react-router-dom';
 import HeaderProfile from '../components/HeaderProfile';
-=======
-import React, { Fragment } from 'react';
-import { Container, Button } from 'react-bootstrap';
-import HeaderProfile from '../components/HeaderProfile';
-import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import { Link } from 'react-router-dom';
->>>>>>> src/pages/Character.js
 import CardCharacter from '../components/CardCharacter';
 
 const Character = ({match}) => {
@@ -92,15 +84,8 @@ const Character = ({match}) => {
 
     return (
         <Fragment>
-<<<<<<< src/pages/Character.js
-            <Container >
-                <Navigation
-                    
-                />
-=======
             <Container>
                 <HeaderProfile />
->>>>>>> src/pages/Character.js
             </Container>
             <Jumbotron fluid className="bg-jumbo" >
                 <Row>
@@ -142,17 +127,10 @@ const Character = ({match}) => {
                     <Link to="detail">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
-<<<<<<< src/pages/Character.js
                     <Link to={`/character/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
                     <Link to={`/review/${detail.id}`}>
-=======
-                    <Link to="#">
-                        <Button variant="outline-danger" className="btn-review" >Characters</Button>
-                    </Link>
-                    <Link to="review">
->>>>>>> src/pages/Character.js
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
                     </Link>
                 </div>

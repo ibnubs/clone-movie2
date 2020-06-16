@@ -8,7 +8,7 @@ import ReviewCard from '../components/ReviewCard';
 import { fetchMovieDetail, fetchMovieVideos } from '../Services/index';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
-import Navigation from '../components/Navbar';
+import HeaderProfile from '../components/HeaderProfile';
 
 const Review = ({ match }) => {
     // return (
@@ -102,9 +102,7 @@ const Review = ({ match }) => {
     return (
         <Fragment>
             <Container >
-                <Navigation
-
-                />
+            <HeaderProfile />
             </Container>
             <Jumbotron fluid className="bg-jumbo" >
                 <Row>
