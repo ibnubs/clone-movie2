@@ -1,19 +1,19 @@
-// import {GET_MOVIES} from '../actions/Types';
+// import { GET_MOVIES } from '../actions/Types';
 // const initialState = {
-//     movies:[]
+//     movies: []
 // }
 
-// export const listMovies = (state=initialState, action) => {
-//     const {type, data} = action;
-//     switch (type){
+// export const listMovies = (state = initialState, action) => {
+//     const { type, data } = action;
+//     switch (type) {
 //         default:
 //             return {
 //                 ...state
 //             }
-//         case 'GET_MOVIES':
+//         case GET_MOVIES:
 //             return {
 //                 ...state,
-//                 movies:data
+//                 movies: data
 //             }
 //     }
 // }

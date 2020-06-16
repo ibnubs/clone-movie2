@@ -1,17 +1,23 @@
-import React, { Fragment } from "react";
-import { useDispatch } from 'react-redux';
+import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { LogoutAction } from '../store/actions/Auth';
+import { getProfile } from '../store/actions/profile';
 import "../assets/style/header.scss";
 
 
-import { Navbar, Nav, Form, FormControl,  InputGroup } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, InputGroup } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
 
 
 const HeaderProfile = (props) => {
+    const Profile = useSelector(state => state.profile.profile)
     const baca_dispatch = useDispatch()
+
+    useEffect(() => {
+        baca_dispatch(getProfile())
+    }, { getProfile })
 
     const handleLogout = (e) => {
         e.preventDefault()
@@ -38,6 +44,7 @@ const HeaderProfile = (props) => {
                     <div className="picture-profile">
                         <img src={require('../assets/image/default-user.png')} alt="" />
                         <DropdownButton title="">
+                            <h6 style={{ textAlign: "center" }}>{Profile}</h6>
                             <Dropdown.Item ><button>Profile</button></Dropdown.Item>
                             <Dropdown.Item ><button>Setting</button></Dropdown.Item>
                             <Dropdown.Item ><button>Help</button></Dropdown.Item>

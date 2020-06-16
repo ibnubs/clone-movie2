@@ -143,7 +143,7 @@ const Review = ({ match }) => {
 
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="">
+                    <Link to="#">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to={`/character/${detail.id}`}>

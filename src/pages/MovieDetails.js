@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import {fetchMovieDetail, fetchMovieVideos} from '../Services/index';
-import Navigation from '../components/Navbar';
-import {Container, Row, Button, Modal, Jumbotron, Col} from 'react-bootstrap';
+import { fetchMovieDetail, fetchMovieVideos } from '../Services/index';
+import HeaderProfile from '../components/HeaderProfile';
+import { Container, Row, Button, Modal, Jumbotron, Col } from 'react-bootstrap';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
@@ -21,10 +21,10 @@ const MovieDetail = ({ match }) => {
         };
         fetchApi();
     }, [params.id]);
-    
+
     const MoviePlayerModal = (props) => {
         const youtubeUrl = 'https://www.youtube.com/watch?v=';
-        return(
+        return (
             <Modal
                 {...props}
                 size="lg"
@@ -34,12 +34,12 @@ const MovieDetail = ({ match }) => {
                 <Modal.Header closeButton>
                     <Modal.Title
                         id="contained-modal-title-vcenter"
-                        style={{color:'#000000', fontWeight: 'bolder'}}
+                        style={{ color: '#000000', fontWeight: 'bolder' }}
                     >
                         {detail.title}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{backgroundColor:'#000000'}}>
+                <Modal.Body style={{ backgroundColor: '#000000' }}>
                     <ReactPlayer
                         className="container-fluid"
                         url={youtubeUrl + video.key}
@@ -57,10 +57,8 @@ const MovieDetail = ({ match }) => {
 
     return (
         <Fragment>
-            <Container >
-                <Navigation
-                    
-                />
+            <Container>
+                <HeaderProfile />
             </Container>
             <Jumbotron fluid className="bg-jumbo" >
                 <Row>
@@ -74,7 +72,7 @@ const MovieDetail = ({ match }) => {
                         style={{ width: '100%', height: '60vh' }}
                     />
 
-                    <Container style={{ marginTop: '-60vh', paddingTop:'10vh',  color: '#ffff', fontWeight: 800, background: 'rgba(0, 0, 0, 0.7)' }} >
+                    <Container style={{ marginTop: '-60vh', paddingTop: '10vh', color: '#ffff', fontWeight: 800, background: 'rgba(0, 0, 0, 0.7)' }} >
                         <h1 > {detail.title} </h1>
                         <h5> {detail.overview} </h5>
                         <Row className="mx-1">
@@ -112,10 +110,10 @@ const MovieDetail = ({ match }) => {
                 <p className="title-detail h4" >
                     <span>
                         Synopsis
-                    </span>                    
+                    </span>
                 </p>
                 <p>
-                {detail.overview}
+                    {detail.overview}
                 </p>
                 <div className="mt-5">
                     <p className="title-detail h4" >
@@ -136,7 +134,7 @@ const MovieDetail = ({ match }) => {
                         </Col>
                     </Row>
                 </div>
-                
+
             </Container>
         </Fragment>
     )
