@@ -100,10 +100,10 @@ const MovieDetail = ({ match }) => {
                     <Link to="">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
-                    <Link to="">
+                    <Link to={`/character/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
-                    <Link to="/review">
+                    <Link to={`/review/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
                     </Link>
                 </div>
@@ -138,8 +138,6 @@ const MovieDetail = ({ match }) => {
             </Container>
         </Fragment>
     )
-
-
 }
 
 export default MovieDetail;

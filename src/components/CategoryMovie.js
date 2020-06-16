@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { fetchGenre, fetchMovieByGenre } from '../Services/index';
-import { Row, Col, Card, Pagination } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import ReactStars from 'react-star-rating-component';
 import '../index.css';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const CategoryMovie = () => {
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
+    const [loadCard, setLoadCard] = useState(4);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -40,11 +41,11 @@ const CategoryMovie = () => {
     })
 
     //loop movielist by genre
-    const movielist = movieByGenre.slice(0, 4).map((item, index) => {
+    const movielist = movieByGenre.slice(0,loadCard).map((item, index) => {
 
         return (
             <Col md={3} sm={6} key={index}>
-                <Card>
+                <Card className='mt-4'>
                     <Link to={`/movie/${item.id}`}>
                         <img
                             className="img-fluid"
@@ -88,15 +89,10 @@ const CategoryMovie = () => {
                 {movielist}
             </Row>
 
-            <div className=" d-flex justify-content-center mt-3">
-                    <Pagination >
-                        <Pagination.First />
-                        <Pagination.Prev />
-                        <Pagination.Item>{1}</Pagination.Item>
-                        <Pagination.Item>{2}</Pagination.Item>
-                        <Pagination.Next />
-                        <Pagination.Last />
-                    </Pagination>
+            <div className=" d-flex justify-content-center mt-3 mb-4">
+                <Button
+                    onClick={()=>setLoadCard(loadCard+4)}
+                >Loadmore</Button>
             </div>
         </Fragment>
     );
