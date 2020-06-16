@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Navigation from '../components/Navbar';
+import HeaderProfile from '../components/HeaderProfile';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import {Container, Row, Button} from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footers from '../components/Footers';
 import '../assets/style/detail.scss';
@@ -10,28 +10,28 @@ const DetailPageOverview = () => {
     return (
         <Fragment>
             <Container>
-                <Navigation />
+                <HeaderProfile />
             </Container>
             <ContainerDisplayImg />
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="">
+                    <Link to="#">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
-                    <Link to="">
+                    <Link to="character">
                         <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
-                    <Link to="">
+                    <Link to="review">
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
                     </Link>
                 </div>
                 <p className="title-detail h4" >
                     <span>
                         Synopsis
-                    </span>                    
+                    </span>
                 </p>
                 <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
                 <div className="mt-5">
                     <p className="title-detail h4" >
@@ -52,7 +52,7 @@ const DetailPageOverview = () => {
                         </div>
                     </Row>
                 </div>
-                
+
 
             </Container>
             <Footers />

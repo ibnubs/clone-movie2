@@ -38,11 +38,11 @@ export const SignUpAction = input => {
 export const login = data => async dispatch => {
     try {
         const res = await axios.post(`${baseUrl_login}`, data)
-        localStorage.setItem('token', res.data.data.token) //simpan token pke setItem
+        localStorage.setItem('token', res.data.data.token)//simpan token pke setItem
         console.log('login : ', res.data.status)
         dispatch({
             type: LOGIN_SUCCESS,
-            payload: res.data.message
+            payload: localStorage.setItem('token', res.data.data.token)
         })
     }
     catch (error) {
@@ -59,6 +59,19 @@ export const LogoutAction = () => {
         type: LOGOUT
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //   export const ACTION_SIGN_IN = input => {
 //     return dispatch => {

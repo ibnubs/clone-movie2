@@ -1,27 +1,27 @@
 import React, { Fragment } from 'react';
-import {Container, Row, Col, Button} from 'react-bootstrap';
-import Navigation from '../components/Navbar';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import HeaderProfile from '../components/HeaderProfile';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import Footers from '../components/Footers';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CardCharacter from '../components/CardCharacter';
 
 const Character = () => {
     return (
         <Fragment>
             <Container>
-                <Navigation />
+                <HeaderProfile />
             </Container>
             <ContainerDisplayImg />
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="">
+                    <Link to="detail">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
-                    <Link to="">
+                    <Link to="#">
                         <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
-                    <Link to="">
+                    <Link to="review">
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
                     </Link>
                 </div>
