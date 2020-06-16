@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Navigation from '../components/Navbar';
-import { login } from '../store/actions/Auth';
+import HeaderProfile from '../components/HeaderProfile';
 import { Container, Button, Modal, Form } from 'react-bootstrap';
 import SliderHome from '../components/SliderHome';
 import CategoryMovie from '../components/CategoryMovie';
@@ -12,7 +11,7 @@ import '../assets/style/login.scss';
 import '../assets/style/style.scss';
 
 
-const Homepage = (props) => {
+const ProfilePage = () => {
     const baca_dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -22,22 +21,11 @@ const Homepage = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const submit = (e) => {
-        e.preventDefault()
-        const userData = {
-            email,
-            password
-        }
-        baca_dispatch(login(userData))
-        props.history.push("/profile")
-    }
 
     return (
         <Fragment>
             <Container >
-                <Navigation
-                    handleShow={handleShow}
-                />
+                <HeaderProfile />
             </Container>
             <SliderHome />
             <Container>
@@ -46,7 +34,7 @@ const Homepage = (props) => {
             </Container>
 
             {/* SignIn Modal Form */}
-            <Modal show={show} onHide={handleClose}>
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header >
                     <Modal.Title className="d-flex logo">
                         <Link to="" className="inline-block">
@@ -80,10 +68,10 @@ const Homepage = (props) => {
                     </Button>
                     <p className="goto-sign-up">Created Account? <Link to="/signup" >SignUp</Link></p>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
         </Fragment >
     )
 }
 
 
-export default Homepage;
+export default ProfilePage;

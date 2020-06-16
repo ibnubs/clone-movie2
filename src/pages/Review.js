@@ -16,10 +16,10 @@ const Review = () => {
             <ContainerDisplayImg />
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="detail">
+                    <Link to="#">
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
-                    <Link to="review">
+                    <Link to="#">
                         <Button variant="outline-danger" className="btn-review" >Characters</Button>
                     </Link>
                     <Link to="#">
