@@ -3,7 +3,6 @@ import HeaderProfile from '../components/HeaderProfile';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import { Container, Button, Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Footers from '../components/Footers';
 import '../assets/style/review.scss';
 import StarRating from '../components/StarRating';
 import ReviewCard from '../components/ReviewCard';
@@ -47,7 +46,6 @@ const Review = () => {
                 </Row>
                 <ReviewCard />
             </Container>
-            <Footers />
         </Fragment>
     )
 }

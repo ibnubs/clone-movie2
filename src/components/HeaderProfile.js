@@ -5,7 +5,11 @@ import { getProfile } from '../store/actions/profile';
 import "../assets/style/header.scss";
 
 
+<<<<<<< HEAD
 import { Navbar, Nav, Form, FormControl, InputGroup } from 'react-bootstrap';
+=======
+import { Navbar, Nav, Form, FormControl,  InputGroup } from 'react-bootstrap';
+>>>>>>> 429ec7394c808673f6be28724cb42f8d6d818aaa
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 

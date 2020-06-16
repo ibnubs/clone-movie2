@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.list-inline-item .btn-outline-danger{
+  border-radius: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.list-inline-item .btn-outline-danger:hover{
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-arrow-alt-circle-right {
+  color: #dc3545;
+  font-size: 40px;
+  font-weight: bolder;
+  cursor: pointer;
+  border-color: #dc3545;
+  
+}
+
+.fa-arrow-alt-circle-right:hover {
+  color: #ffd700;
+  transition: all 0.2s ease-in-out;
+}

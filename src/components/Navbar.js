@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "../assets/style/style.scss";
-
+import {Link} from 'react-router-dom';
 
 import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 
@@ -11,9 +11,13 @@ const Navigation = ({ handleShow }) => {
     <Fragment>
       <Navbar expand="lg">
         <Navbar.Brand href="#home" >
-          <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} alt="" />
+          <Link to="/">
+            <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} alt="" />
+          </Link>
         </Navbar.Brand>
-        <p className="h1">MilanTV</p>
+        <Link to="/">
+          <p className="h1" style={{color:"black", fontWeight:'bolder'}}>MilanTV</p>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
