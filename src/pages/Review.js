@@ -4,54 +4,17 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Container, Button, Row, Col, Modal, Jumbotron, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../assets/style/review.scss';
+
+import { useDispatch } from 'react-redux';
 import ReviewCard from '../components/ReviewCard';
 import { fetchMovieDetail, fetchMovieVideos } from '../Services/index';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
 import HeaderProfile from '../components/HeaderProfile';
+import { addReview } from '../store/actions/review';
 
 const Review = ({ match }) => {
-    // return (
-    //     <Fragment>
-    //         <Container>
-    //             <HeaderProfile />
-    //         </Container>
-    //         <ContainerDisplayImg />
-    //         <Container>
-    //             <div className="text-left mb-5 category">
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Overview</Button>
-    //                 </Link>
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Characters</Button>
-    //                 </Link>
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Review</Button>
-    //                 </Link>
-    //             </div>
-    //             <Row>
-    //                 <Col sm={1} style={{ marginLeft: '20px' }}>
-    //                     <div className="dummy-pic text-center" >PIC</div>
-    //                 </Col>
-    //                 <Col>
-    //                     <p className="font-weight-bold">Text Nama Review</p>
-    //                     <div style={{ marginTop: '-10px' }}>
-    //                         <StarRating />
-    //                     </div>
-    //                 </Col>
-    //             </Row>
-    //             <Row style={{ paddingLeft: '8rem' }} className="mb-4">
-    //                 <Form>
-    //                     <Form.Group>
-    //                         <Form.Control placeholder="Leave a review..." as="textarea" rows="3" style={{ width: "70vw" }}></Form.Control>
-    //                     </Form.Group>
-    //                 </Form>
-    //             </Row>
-    //             <ReviewCard />
-    //         </Container>
-    //     </Fragment>
-    // )
-
+    const dispatch = useDispatch()
 
     let params = match.params;
     const [isOpen, setIsOpen] = useState(false);
@@ -102,7 +65,7 @@ const Review = ({ match }) => {
     return (
         <Fragment>
             <Container >
-            <HeaderProfile />
+                <HeaderProfile />
             </Container>
             <Jumbotron fluid className="bg-jumbo" >
                 <Row>
@@ -163,7 +126,7 @@ const Review = ({ match }) => {
                     <Col>
                         <p className="font-weight-bold">Text Nama Review</p>
                         <div style={{ marginTop: '-10px' }}>
-                            
+
                         </div>
                     </Col>
                 </Row>
@@ -171,7 +134,9 @@ const Review = ({ match }) => {
                     <Form>
                         <Form.Group>
                             <Form.Control placeholder="Leave a review..." as="textarea" rows="3" style={{ width: "70vw" }}></Form.Control>
-                            <Button className="send" style={{ backgroundColor: "#fe024e", borderColor: "#fe024e" }}>
+                            <Button className="send" style={{ backgroundColor: "#fe024e", borderColor: "#fe024e" }}
+                                onClick={() => dispatch(addReview())}
+                            >
                                 Submit
                             </Button>
                         </Form.Group>
