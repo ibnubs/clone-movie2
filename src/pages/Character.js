@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import {Container, Row, Col, Button} from 'react-bootstrap';
+import {Container,  Button} from 'react-bootstrap';
 import Navigation from '../components/Navbar';
 import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import {Link} from 'react-router-dom';

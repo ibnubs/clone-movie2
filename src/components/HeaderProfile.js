@@ -4,7 +4,7 @@ import { LogoutAction } from '../store/actions/Auth';
 import "../assets/style/header.scss";
 
 
-import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl,  InputGroup } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 

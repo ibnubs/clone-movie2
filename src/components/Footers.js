@@ -15,7 +15,7 @@ const Footers = () => {
                         <ul>
                             <li>
                                 <div className="logo">
-                                    <div className="box-pink">
+                                    {/* <div className="box-pink">
                                         <svg height="50" width="75">
                                             <polygon points="30,5 50,25 30,45"
                                                 style={{
@@ -23,8 +23,9 @@ const Footers = () => {
                                                 }}
                                             />
                                         </svg>
-                                    </div>
-                                    <h2>Milan Tv</h2>
+                                    </div> */}
+                                    <img src={require('../assets/images/logo.png')} style={{ width: 44, height: 44 }} alt="" />
+                                    <h1 style={{marginLeft:20, color:'#ffffff'}}>MilanTv</h1>
                                 </div>
                                 <p>This project is a project about uploading and</p>
                                 <p>reading video or movie files. It might not be perfect yet</p>
