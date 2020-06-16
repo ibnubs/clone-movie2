@@ -1,13 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navigation from '../components/Navbar'
 import { login } from '../store/actions/Auth';
-import { Carousel, Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
-import CardList from '../components/CardList';
-import {getMovie} from '../store/actions/movies';
+import { Container, Pagination, Button, Modal, Form } from 'react-bootstrap';
+// import CardList from '../components/CardList';
 import SliderHome from '../components/SliderHome';
-import axios from 'axios';
+// import axios from 'axios';
+import CategoryMovie from '../components/CategoryMovie';
 
 //Css
 import '../assets/style/login.scss';
@@ -45,28 +45,28 @@ const Homepage = (props) => {
 
 
 
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
     
-    useEffect(()=> {
-        const fetchData = async () => {
-            const res = await axios
-                .get("https://be-review-movie.herokuapp.com/api/v1/movie/")
-                setMovies(res.data.data.Movie)    
-        } 
-        fetchData();
-    },[]);
+    // useEffect(()=> {
+    //     const fetchData = async () => {
+    //         const res = await axios
+    //             .get("https://be-review-movie.herokuapp.com/api/v1/movie/")
+    //             setMovies(res.data.data.Movie)    
+    //     } 
+    //     fetchData();
+    // },[]);
 
-    const ListMovies = movies.map(item => {
-        // console.log(item, 'ini dari item')
-        return (
-            <CardList
-                item={item}
-                title={item.title}
-                poster={item.poster}
-                genre={item.genre}
-            />
-        )
-    })
+    // const ListMovies = movies.map(item => {
+    //     // console.log(item, 'ini dari item')
+    //     return (
+    //         <CardList
+    //             item={item}
+    //             title={item.title}
+    //             poster={item.poster}
+    //             genre={item.genre}
+    //         />
+    //     )
+    // })
 
     return (
         <Fragment>
@@ -78,7 +78,7 @@ const Homepage = (props) => {
             <SliderHome />
             <Container>
                 <p className="h2 text-left mt-2"><strong> Browser by category </strong></p>
-                <div className="text-left mb-5 category">
+                {/* <div className="text-left mb-5 category">
                     <Link to="">All</Link>
                     <Link to="">Anime</Link>
                     <Link to="">Adventure</Link>
@@ -90,9 +90,11 @@ const Homepage = (props) => {
                     <div className="card-deck mb-3">
                         {ListMovies}
                     </div>
+                </div> */}
 
-                </div>
-                <div className=" d-flex justify-content-center">
+                <CategoryMovie />
+
+                <div className=" d-flex justify-content-center mt-3">
                     <Pagination >
                         <Pagination.First />
                         <Pagination.Prev />
