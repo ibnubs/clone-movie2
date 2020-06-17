@@ -19,7 +19,7 @@ const DetailPageOverview = () => {
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to="character">
-                        <Button variant="outline-danger" className="btn-review" >Characters</Button>
+                        <Button variant="outline-danger" className="btn-review" >Cast</Button>
                     </Link>
                     <Link to="review">
                         <Button variant="outline-danger" className="btn-review" >Review</Button>

@@ -93,10 +93,10 @@ const Review = ({ match }) => {
                             <p className=" ml-3" style={{ fontSize: '1.4rem' }}>  {detail.vote_count} reviews</p>
                         </Row>
                         <Col >
-                            <Button variant="outline-danger" className="mr-2"
+                            <Button variant="danger" className="mr-2"
                                 onClick={() => setIsOpen(true)}
                             >Watch Trailer</Button>
-                            <Button variant="outline-danger">Add to Watchlist</Button>
+                            {/* <Button variant="outline-danger">Add to Watchlist</Button> */}
                         </Col>
                     </Container>
                 </Row>
@@ -104,7 +104,7 @@ const Review = ({ match }) => {
 
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="#">
+                    <Link to={`/movie/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to={`/character/${detail.id}`}>

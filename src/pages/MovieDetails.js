@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { fetchMovieDetail, fetchMovieVideos } from '../Services/index';
+import { fetchMovieDetail, fetchMovieVideos, fetchSimilarMovie } from '../Services/index';
 import HeaderProfile from '../components/HeaderProfile';
-import { Container, Row, Button, Modal, Jumbotron, Col } from 'react-bootstrap';
+import { Container, Row, Button, Modal, Jumbotron, Col,Card } from 'react-bootstrap';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
@@ -13,11 +13,13 @@ const MovieDetail = ({ match }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [detail, setDetail] = useState([]);
     const [video, setVideo] = useState([]);
+    const [similarMovie, setSimilarMovie] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
             setDetail(await fetchMovieDetail(params.id));
             setVideo(await fetchMovieVideos(params.id));
+            setSimilarMovie(await fetchSimilarMovie(params.id));
         };
         fetchApi();
     }, [params.id]);
@@ -53,7 +55,32 @@ const MovieDetail = ({ match }) => {
         )
     }
 
-
+    const similarMovieList = similarMovie.slice(0,4).map((item,index)=> {
+        return(
+            <Col md={3} sm={6} key={index}>
+                <Card border="light" className='mt-4'>
+                    <Link to={`/movie/${item.id}`}>
+                        <img
+                            className="img-fluid"
+                            src={item.poster}
+                            alt={item.title}
+                        />
+                    </Link>
+                    <Card.Body className="text-center">
+                        <Card.Title> {item.title} </Card.Title>
+                        <Card.Text > {item.rating} </Card.Text>
+                        <ReactStars
+                            value={item.rating}
+                            starCount={item.rating}
+                            size={20}
+                            emptyStarColor={"#ffb400"}
+                        >
+                        </ReactStars>
+                    </Card.Body>
+                </Card>
+            </Col>
+        )
+    })
 
     return (
         <Fragment>
@@ -86,10 +113,10 @@ const MovieDetail = ({ match }) => {
                             <p className=" ml-3" style={{ fontSize: '1.4rem' }}>  {detail.vote_count} reviews</p>
                         </Row>
                         <Col >
-                            <Button variant="outline-danger" className="mr-2"
+                            <Button variant="danger" className="mr-2"
                                 onClick={() => setIsOpen(true)}
                             >Watch Trailer</Button>
-                            <Button variant="outline-danger">Add to Watchlist</Button>
+                            {/* <Button variant="outline-danger">Add to Watchlist</Button> */}
                         </Col>
                     </Container>
                 </Row>
@@ -97,11 +124,11 @@ const MovieDetail = ({ match }) => {
 
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="">
+                    <Link to={`/movie/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to={`/character/${detail.id}`}>
-                        <Button variant="outline-danger" className="btn-review" >Characters</Button>
+                        <Button variant="outline-danger" className="btn-review" >Cast</Button>
                     </Link>
                     <Link to={`/review/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
@@ -134,6 +161,16 @@ const MovieDetail = ({ match }) => {
                         </Col>
                     </Row>
                 </div>
+                <Row className="mb-3">
+                    <p className="title-detail h4" >
+                        <span>
+                            Similar Film
+                        </span>
+                    </p>
+                </Row>
+                <Row>
+                    {similarMovieList}
+                </Row>
 
             </Container>
         </Fragment>
