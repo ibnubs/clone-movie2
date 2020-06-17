@@ -1,0 +1,35 @@
+.container {
+    .form-inline {
+      margin:0 8rem;
+      .form-control {
+        width: 25rem;
+      }
+    }
+    .picture-profile {
+      margin:0;
+      display: flex;
+      button {
+        background: none;
+        border: none;
+      }
+      .dropdown {
+        button {
+          background: none;
+          border-color: #ffffff;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        ::after{
+          color: black;
+        }
+      }
+      img{
+        width: 17%;
+        border-radius: 5rem;
+        margin-left: 5rem;
+      }
+      
+    }
+  }

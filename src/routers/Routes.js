@@ -5,10 +5,11 @@ import { Switch, Route, } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Footers from "../components/Footers";
 import SignUp from "../components/SignUp";
-import Profile from "../pages/Profile";
-import Detail from "../pages/DetailPageOverview";
+import Detail from "../pages/MovieDetails";
 import Review from "../pages/Review";
 import Character from "../pages/Character";
+import ProfilePage from "../pages/ProfilePage";
+
 
 
 
@@ -19,12 +20,12 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Homepage} />
                 <Route path="/signup" exact component={SignUp} />
-                <Route path="/profile" exact component={Profile} />
-                <Route path="/detail" exact component={Detail} />
-                <Route path="/review" exact component={Review} />
-                <Route path="/character" exact component={Character} />
-                <Footers />
+                <Route path="/movie/:id" exact component={Detail} />
+                <Route path="/review/:id" exact component={Review} />
+                <Route path="/character/:id" exact component={Character} />
+                <Route path="/profile" exact component={ProfilePage} />
             </Switch>
+            <Footers />
         </Fragment>
     );
 }

@@ -1,33 +1,32 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import {Container,  Button, Modal, Jumbotron, Col, Row} from 'react-bootstrap';
-// import Navigation from '../components/Navbar';
-import {fetchMovieDetail, fetchMovieVideos, fetchCasts} from '../Services/index';
+import React, { Fragment, useState, useEffect } from 'react';
+import { fetchMovieDetail, fetchMovieVideos, fetchSimilarMovie } from '../Services/index';
+import HeaderProfile from '../components/HeaderProfile';
+import { Container, Row, Button, Modal, Jumbotron, Col,Card } from 'react-bootstrap';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
-// import ContainerDisplayImg from '../components/ContainerDisplayImg';
-import {Link} from 'react-router-dom';
-import HeaderProfile from '../components/HeaderProfile';
+import { Link } from 'react-router-dom';
+import '../assets/style/detail.scss';
 
-const Character = ({match}) => {
+const MovieDetail = ({ match }) => {
+
     let params = match.params;
     const [isOpen, setIsOpen] = useState(false);
     const [detail, setDetail] = useState([]);
     const [video, setVideo] = useState([]);
-    const [casts,setCasts] = useState([]);
-    
+    const [similarMovie, setSimilarMovie] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
             setDetail(await fetchMovieDetail(params.id));
             setVideo(await fetchMovieVideos(params.id));
-            setCasts(await fetchCasts(params.id));
+            setSimilarMovie(await fetchSimilarMovie(params.id));
         };
         fetchApi();
     }, [params.id]);
-    
+
     const MoviePlayerModal = (props) => {
         const youtubeUrl = 'https://www.youtube.com/watch?v=';
-        return(
+        return (
             <Modal
                 {...props}
                 size="lg"
@@ -37,12 +36,12 @@ const Character = ({match}) => {
                 <Modal.Header closeButton>
                     <Modal.Title
                         id="contained-modal-title-vcenter"
-                        style={{color:'#000000', fontWeight: 'bolder'}}
+                        style={{ color: '#000000', fontWeight: 'bolder' }}
                     >
                         {detail.title}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{backgroundColor:'#000000'}}>
+                <Modal.Body style={{ backgroundColor: '#000000' }}>
                     <ReactPlayer
                         className="container-fluid"
                         url={youtubeUrl + video.key}
@@ -56,20 +55,29 @@ const Character = ({match}) => {
         )
     }
 
-    const castList = casts.map ((c,i)=>{
+    const similarMovieList = similarMovie.slice(0,4).map((item,index)=> {
         return(
-            <Col md={3} className="text-center" key={i}>
-                <img 
-                    rounded
-                    className="img-fluid mx-auto d-block"
-                    src={c.img}
-                    alt={c.name}
-                />
-                <p className="font-weight-bold mt-2"> {c.name} </p>
-                <p
-                    className="font-weight-light text-center mb-3"
-                    style={{color:"#5a606b", marginTop:"-5px"}}
-                > {c.character} </p>
+            <Col md={3} sm={6} key={index}>
+                <Card border="light" className='mt-4'>
+                    <Link to={`/movie/${item.id}`}>
+                        <img
+                            className="img-fluid"
+                            src={item.poster}
+                            alt={item.title}
+                        />
+                    </Link>
+                    <Card.Body className="text-center">
+                        <Card.Title> {item.title} </Card.Title>
+                        <Card.Text > {item.rating} </Card.Text>
+                        <ReactStars
+                            value={item.rating}
+                            starCount={item.rating}
+                            size={20}
+                            emptyStarColor={"#ffb400"}
+                        >
+                        </ReactStars>
+                    </Card.Body>
+                </Card>
             </Col>
         )
     })
@@ -91,7 +99,7 @@ const Character = ({match}) => {
                         style={{ width: '100%', height: '60vh' }}
                     />
 
-                    <Container style={{ marginTop: '-60vh', paddingTop:'10vh',  color: '#ffff', fontWeight: 800, background: 'rgba(0, 0, 0, 0.7)' }} >
+                    <Container style={{ marginTop: '-60vh', paddingTop: '10vh', color: '#ffff', fontWeight: 800, background: 'rgba(0, 0, 0, 0.7)' }} >
                         <h1 > {detail.title} </h1>
                         <h5> {detail.overview} </h5>
                         <Row className="mx-1">
@@ -128,19 +136,47 @@ const Character = ({match}) => {
                 </div>
                 <p className="title-detail h4" >
                     <span>
-                        Cast
-                    </span>                    
+                        Synopsis
+                    </span>
                 </p>
-                <Row className="mt-3">
-                        {castList}
+                <p>
+                    {detail.overview}
+                </p>
+                <div className="mt-5">
+                    <p className="title-detail h4" >
+                        <span>
+                            Movie Info
+                        </span>
+                    </p>
+                    <Row>
+                        <Col md={2}>
+                            <p className="font-weight-bold">Release Date:</p>
+                            <p className="font-weight-bold">Budget:</p>
+                            <p className="font-weight-bold">Revenue:</p>
+                        </Col>
+                        <Col md={10} className="mb-5" >
+                            <p>{detail.release_date} </p>
+                            <p> {detail.budget} </p>
+                            <p> {detail.revenue} </p>
+                        </Col>
+                    </Row>
+                </div>
+                <Row className="mb-3">
+                    <p className="title-detail h4" >
+                        <span>
+                            Similar Film
+                        </span>
+                    </p>
                 </Row>
+                <Row>
+                    {similarMovieList}
+                </Row>
+
             </Container>
         </Fragment>
     )
-
-
-
-
 }
 
-export default Character;
+export default MovieDetail;
+
+

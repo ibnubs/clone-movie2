@@ -1,4 +1,14 @@
 import { combineReducers } from 'redux';
-import regis from './regis';
+import { authReducer } from './Auth';
+import profiles from './profile';
+import { listMovies } from './movies';
+import review from './review';
 
-export default combineReducers({ regis })
+const rootReducers = combineReducers({
+    auth: authReducer,
+    profile: profiles,
+    get_movies: listMovies,
+    add_review: review
+})
+
+export default rootReducers;
