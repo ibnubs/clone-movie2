@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const CategoryMovie = () => {
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
-    const [loadCard, setLoadCard] = useState(4);
+    const [loadCard, setLoadCard] = useState(8);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -45,7 +45,7 @@ const CategoryMovie = () => {
 
         return (
             <Col md={3} sm={6} key={index}>
-                <Card className='mt-4'>
+                <Card border="light" className='mt-4'>
                     <Link to={`/movie/${item.id}`}>
                         <img
                             className="img-fluid"
@@ -55,7 +55,7 @@ const CategoryMovie = () => {
                     </Link>
                     <Card.Body className="text-center">
                         <Card.Title> {item.title} </Card.Title>
-                        <Card.Text> {item.rating} </Card.Text>
+                        <Card.Text > {item.rating} </Card.Text>
                         <ReactStars
                             value={item.rating}
                             starCount={item.rating}

@@ -1,50 +1,26 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import {Container,  Button, Modal, Jumbotron, Col, Row} from 'react-bootstrap';
 // import Navigation from '../components/Navbar';
-import {fetchMovieDetail, fetchMovieVideos} from '../Services/index';
+import {fetchMovieDetail, fetchMovieVideos, fetchCasts} from '../Services/index';
 import ReactStars from 'react-star-rating-component';
 import ReactPlayer from 'react-player';
 // import ContainerDisplayImg from '../components/ContainerDisplayImg';
 import {Link} from 'react-router-dom';
 import HeaderProfile from '../components/HeaderProfile';
-import CardCharacter from '../components/CardCharacter';
 
 const Character = ({match}) => {
-    // return (
-    //     <Fragment>
-    //         <Container>
-    //             <Navigation />
-    //         </Container>
-            
-    //         <Container>
-    //             <div className="text-left mb-5 category">
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Overview</Button>
-    //                 </Link>
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Characters</Button>
-    //                 </Link>
-    //                 <Link to="">
-    //                     <Button variant="outline-danger" className="btn-review" >Review</Button>
-    //                 </Link>
-    //             </div>
-    //             <CardCharacter />
-    //             <CardCharacter />
-    //         </Container>
-    //     </Fragment>
-    // );
-
-
-
     let params = match.params;
     const [isOpen, setIsOpen] = useState(false);
     const [detail, setDetail] = useState([]);
     const [video, setVideo] = useState([]);
+    const [casts,setCasts] = useState([]);
+    
 
     useEffect(() => {
         const fetchApi = async () => {
             setDetail(await fetchMovieDetail(params.id));
             setVideo(await fetchMovieVideos(params.id));
+            setCasts(await fetchCasts(params.id));
         };
         fetchApi();
     }, [params.id]);
@@ -80,7 +56,23 @@ const Character = ({match}) => {
         )
     }
 
-
+    const castList = casts.map ((c,i)=>{
+        return(
+            <Col md={3} className="text-center" key={i}>
+                <img 
+                    rounded
+                    className="img-fluid mx-auto d-block"
+                    src={c.img}
+                    alt={c.name}
+                />
+                <p className="font-weight-bold mt-2"> {c.name} </p>
+                <p
+                    className="font-weight-light text-center mb-3"
+                    style={{color:"#5a606b", marginTop:"-5px"}}
+                > {c.character} </p>
+            </Col>
+        )
+    })
 
     return (
         <Fragment>
@@ -113,10 +105,10 @@ const Character = ({match}) => {
                             <p className=" ml-3" style={{ fontSize: '1.4rem' }}>  {detail.vote_count} reviews</p>
                         </Row>
                         <Col >
-                            <Button variant="outline-danger" className="mr-2"
+                            <Button variant="danger" className="mr-2"
                                 onClick={() => setIsOpen(true)}
                             >Watch Trailer</Button>
-                            <Button variant="outline-danger">Add to Watchlist</Button>
+                            {/* <Button variant="outline-danger">Add to Watchlist</Button> */}
                         </Col>
                     </Container>
                 </Row>
@@ -124,11 +116,11 @@ const Character = ({match}) => {
 
             <Container>
                 <div className="text-left mb-5 category">
-                    <Link to="detail">
+                    <Link to={`/movie/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Overview</Button>
                     </Link>
                     <Link to={`/character/${detail.id}`}>
-                        <Button variant="outline-danger" className="btn-review" >Characters</Button>
+                        <Button variant="outline-danger" className="btn-review" >Cast</Button>
                     </Link>
                     <Link to={`/review/${detail.id}`}>
                         <Button variant="outline-danger" className="btn-review" >Review</Button>
@@ -139,9 +131,9 @@ const Character = ({match}) => {
                         Cast
                     </span>                    
                 </p>
-                <CardCharacter />
-                <CardCharacter />
-                
+                <Row className="mt-3">
+                        {castList}
+                </Row>
             </Container>
         </Fragment>
     )
