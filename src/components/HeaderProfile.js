@@ -4,7 +4,7 @@ import { LogoutAction } from '../store/actions/Auth';
 import { getProfile } from '../store/actions/profile';
 import { Link } from 'react-router-dom';
 import "../assets/style/header.scss";
-import {Link} from 'react-router-dom';
+
 
 import { Navbar, Nav, Form, FormControl, InputGroup } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
