@@ -1,8 +1,6 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { Fragment } from 'react'
 import HeaderProfile from '../components/HeaderProfile';
-import { Container, Button, Modal, Form } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import SliderHome from '../components/SliderHome';
 import CategoryMovie from '../components/CategoryMovie';
 
@@ -12,14 +10,14 @@ import '../assets/style/style.scss';
 
 
 const ProfilePage = () => {
-    const baca_dispatch = useDispatch()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    // const baca_dispatch = useDispatch()
+    // const [email, setEmail] = useState("")
+    // const [password, setPassword] = useState("")
 
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const [show, setShow] = useState(false);
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
 
 
     return (

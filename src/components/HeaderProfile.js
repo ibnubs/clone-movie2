@@ -14,15 +14,15 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 const HeaderProfile = (props) => {
     const Profile = useSelector(state => state.profile.profile)
-    const baca_dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        baca_dispatch(getProfile())
-    }, { getProfile })
+        dispatch(getProfile())
+    }, [dispatch])
 
     const handleLogout = (e) => {
         e.preventDefault()
-        baca_dispatch(LogoutAction())
+        dispatch(LogoutAction())
         props.history.push("/")
     }
 
